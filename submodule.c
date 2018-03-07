@@ -428,7 +428,8 @@ static int prepare_submodule_summary(struct rev_info *rev, const char *path,
 	init_revisions(rev, NULL);
 	setup_revisions(0, NULL, rev, NULL);
 	rev->left_right = 1;
-	rev->first_parent_only = 1;
+	rev->max_parents = 1;
+	rev->first_parent_only = 0;
 	left->object.flags |= SYMMETRIC_LEFT;
 	add_pending_object(rev, &left->object, path);
 	add_pending_object(rev, &right->object, path);
